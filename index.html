@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>CinoClient Ver1.1.X</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: url("main.png") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+.container {
+    width: 750px;
+    margin: 60px auto;
+    background: rgba(99, 109, 126, 0.7);
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/* タブ */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.tab {
+    padding: 8px 14px;
+    background: #5c6f90;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    color: white;
+}
+
+.tab.active {
+    border-bottom: 3px solid orange;
+}
+
+/* モジュール */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.module {
+    padding: 10px;
+    border: 2px solid orange;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.2s;
+    color: white;
+}
+
+.module:hover {
+    transform: scale(1.05);
+}
+
+/* 選択状態 */
+.module.selected {
+    background: rgba(255,255,255,0.2);
+}
+
+/* 下の説明パネル */
+.desc-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-top: 2px solid orange;
+}
+
+.desc-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.desc-text {
+    font-size: 14px;
+}
+
+/* 色変更 */
+.colors {
+    margin-top: 10px;
+}
+
+.color {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* ページ */
+.page { display: none; }
+.page.active { display: block; }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- タブ -->
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('main', this)">MainMenu</div>
+        <div class="tab" onclick="openTab('itemenu', this)">ItemMenu</div>
+        <div class="tab" onclick="openTab('misc', this)">Misc</div>
+        <div class="tab" onclick="openTab('render', this)">Render</div>
+        <div class="tab" onclick="openTab('items', this)">Items</div>
+        <div class="tab" onclick="openTab('addtag', this)">AddTag</div>
+        <div class="tab" onclick="openTab('movement', this)">Movement</div>
+        <div class="tab" onclick="openTab('world', this)">Server</div>
+    </div>
+
+    <!-- Main -->
+    <div id="main" class="page active">
+        <div class="grid">
+            <div class="module" data-desc="フリーズするチェストスティーラー無効化">AntiStealer</div>
+            <div class="module" data-desc="クラッシュスポナー無効化">AntiSpawner</div>
+            <div class="module" data-desc="テクスチャ無効">AntiTexture</div>
+            <div class="module" data-desc="レベル正規化">LevelWarn</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="アイテムの詳細表示">DebugText</div>
+            <div class="module" data-desc="マイクをミュート">MicMute</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="ゲームメニューに戻る">ToMenu</div>
+            <div class="module" data-desc="ログをクリア">ClearLog</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="本体を再起動">Restart</div>
+            <div class="module" data-desc="本体の電源を消す">Shutdown</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+        </div>
+
+        <div class="colors">
+            UI Theme Color:
+            <div class="color" style="background:red" onclick="setColor('red')"></div>
+            <div class="color" style="background:lime" onclick="setColor('lime')"></div>
+            <div class="color" style="background:blue" onclick="setColor('blue')"></div>
+            <div class="color" style="background:yellow" onclick="setColor('yellow')"></div>
+            <div class="color" style="background:cyan" onclick="setColor('cyan')"></div>
+            <div class="color" style="background:purple" onclick="setColor('purple')"></div>
+            <div class="color" style="background:white" onclick="setColor('white')"></div>
+            <div class="color" style="background:orange" onclick="setColor('orange')"></div>
+        </div>
+        <h5>CinoClient Ver1.1.2</h5>
+    </div>
+
+    <!-- Item -->
+    <div id="itemenu" class="page">
+        <div class="grid">
+            <div class="module" data-desc="[材料タブ]: 普通は出せないアイテム一覧">HackItem</div>
+            <div class="module" data-desc="[武器タブ]: 自作モッドメニュー">CinoMenu</div>
+            <div class="module" data-desc="[武器タブ]: 耐久付与">Unbreak</div>
+            <div class="module" data-desc="[武器タブ]: 花火,名札,スポーンエッグ,看板,ステータス一覧の本,カスタムドロップ増加&ワンパン剣,カスタム激流トライデント,全エンチャント本(合成用&元用),バグアイテム,色付き花瓶...など">CustomItem</div>
+            <div class="module" data-desc="[材料タブ]: カスタムポーション">Potion</div>
+            <div class="module" data-desc="[材料タブ]: 宝箱のルートテーブル">Chest</div>
+            <div class="module" data-desc="[武器タブ]: スピードが付与された足が速くなるブーツ(履くと付与される)">SpeedBoots</div>
+            <div class="module" data-desc="[武器タブ]: スピードが付与された足が遅くなるブーツ(履くと付与される)">SlowBoots</div>
+            <div class="module" data-desc="[武器タブ]: 旗でさまざまな世界の国旗">CountryFlag</div>
+            <div class="module" data-desc="[その他タブ]: ロックされたシュルカーボックス(シュルカーボックスの横に鍵を置いてます)">LockShulker</div>
+            <div class="module" data-desc="[材料タブ]: さまざまなスポナー">Spawner</div>
+            <div class="module" data-desc="[武器タブ]: モブではないスポナー">NotionSpawner</div>
+            <div class="module" data-desc="[材料タブ]: エッグウォーズの村人スポナー(16色)">EggWars</div>
+            <div class="module" data-desc="[武器タブ]: (代表的な)10色の防具と地図">ArmorColor</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="[飾りタブ]: 元のアイテム戻す">Re:Decoration</div>
+            <div class="module" data-desc="[材料タブ]: 元のアイテム戻す">Re:Material</div>
+        </div>
+    </div>
+    
+    <!-- Misc -->
+    <div id="misc" class="page">
+        <div class="grid">
+            <div class="module" data-desc="泳げなくなる">AntiSwim</div>
+            <!-- <div class="module" data-desc="雑音無効">AntiNoise</div> -->
+            <!-- <div class="module" data-desc="爆音無効">AntiSound</div> -->
+            <!-- <div class="module" data-desc="攻撃無効">AntiAttack</div> -->
+            <div class="module" data-desc="CSMの表示を無効化">AntiCSM</div>
+            <div class="module" data-desc="釣り竿の表示を無効化">AntiFishing</div>
+            <div class="module" data-desc="追加コンテンツ解放">UnlockDLC</div>
+            <div class="module" data-desc="目の前のプレイヤーのスキンをコピー">SkinCopy</div>
+            <div class="module" data-desc="目の前のプレイヤーのマントをコピー">CapeCopy</div>
+            <div class="module" data-desc="マント一覧を表示">CapeList</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="テトリスできます。">Tetris</div>
+            <div class="module" data-desc="操作するロゴを骨に代わります。">Bone</div>
+        </div>
+    </div>
+    
+    <!-- Render -->
+    <div id="render" class="page">
+        <div class="grid">
+            <div class="module" data-desc="当たり判定を表示">HitBox</div>
+            <div class="module" data-desc="ネームタグを表示">NameTag</div>
+            <div class="module" data-desc="画面を明るくする">FullBright</div>
+            <div class="module" data-desc="防具を表示">ArmorHUD</div>
+            <div class="module" data-desc="真ん中の視点に丸いピンクが描画されます。エンティティが合うと赤色に変更されます。">Reticle</div>
+            <div class="module" data-desc="プレイヤーにHPを表示します。NameTagと一緒にONにすると適応されます。">ShowHealth</div>
+            <div class="module" data-desc="アイテムをぺらぺらに">ItemPhysics</div>
+            <div class="module" data-desc="フォントを変更する">BetterFont</div>
+            <div class="module" data-desc="FPSを表示">ShowFPS</div>
+            <div class="module" data-desc="CPSを表示">ShowCPS</div>
+            <div class="module" data-desc="座標を表示">Coordinates</div>
+            <div class="module" data-desc="調整可能なズームを搭載(説明通知が表示されます)">Zoom</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="[HitBox:ON]→当たり判定の色がモジュールと同じになります">Color:HitBox</div>
+            <div class="module" data-desc="[NameTag:ON]→ネームタグの色がモジュールと同じになります">Color:NameTag</div>
+            <div class="module" data-desc="[HitBox:ON]→目線の先の色がモジュールと同じになります">Color:ESP</div>
+            <div class="module" data-desc="釣り糸の色がモジュールと同じになります">Color:Fishing</div>
+            <div class="module" data-desc="経験値の色がモジュールと同じになります">Color:EXP</div>
+        </div>
+    </div>
+
+    <!-- Items -->
+    <div id="items" class="page">
+        <div class="grid">
+            <div class="module" data-desc="左手にある食べ物を自動で食べてくれます。">AutoEat</div>
+            <div class="module" data-desc="左手にある上位金リンゴを補充しながら自動で食べてくれます(弓を持ってると無効化)。">AutoGapple</div>
+            <div class="module" data-desc="左手にアイテムを転送(説明通知が表示されます)">SwapOffHand</div>
+            <div class="module" data-desc="いつでもクラフト">CraftEverything</div>
+            <div class="module" data-desc="2個以上のアイテムを一括で捨てることが可能">DropStack</div>
+            <div class="module" data-desc="上位の金リンゴを検出">GappleDetector</div>
+            <div class="module" data-desc="持ち物欄のアイテムを整理">InventorySort</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="持ち物欄のアイテムをクリア">InventoryClean</div>
+            <div class="module" data-desc="虹色防具">RainbowArmor</div>
+            <div class="module" data-desc="アニメーションバナー(5種類,6カラー)">AnimBanner</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="手に持ってるアイテムを頭にコピーしてくれます。">HandHead</div>
+            <div class="module" data-desc="・手に持ってるアイテムのダメージ値をループして頭にコピーできるようになりました。">LoopHead</div>
+            <div class="module" data-desc="手に持ってるアイテムを64個にしてくれます。">ItemStack</div>
+            <div class="module" data-desc="手に持ってるアイテムを[飾りタブ]へコピーしてくれます。">ItemCopy</div>
+        </div>
+    </div>
+
+    <!-- AddTag -->
+    <div id="addtag" class="page">
+        <div class="grid">
+            <div class="module" data-desc="手に持ってるアイテムに耐久を付与できる。">Unbreakble</div>
+            <div class="module" data-desc="手に持ってるアイテムの耐久を削除できる。">NoUnbreakble</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="手に持ってるアイテムのタグを消去">DisableTag</div>
+            <div class="module" data-desc="手に持ってるアイテムの詳細を隠してくれます。">HideFlag</div>
+            <div class="module" data-desc="手に持ってるアイテムの隠してる詳細を消去してくれます。">DisableFlag</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="手に持ってるアイテムのレベルコストを初期値にしてくれます。">CostReset</div>
+            <div class="module" data-desc="手に持ってるアイテムに金床編集を無効化するタグを付与します。">CostError</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="手に持ってるアイテムにエンチャント効果を付与できる。[操作方法] | 十字キー下&LR:エンチャント選択 | 十字キー左&LR:レベル選択 | 十字キー上&ZL:実行 | 十字キー左&ZR:レベルマックス | ZR&R:すべてリセット">Enchant</div>
+            <div class="module" data-desc="手に持ってるアイテムにステータス効果を付与できる。[操作方法] UIが出ます。">Attribute</div>
+            <div class="module" data-desc="手に持ってるアイテムにポーション効果を付与できる。[操作方法] | 十字キー下&LR:ポーション効果選択 | 十字キー左&LR:時間設定 | 十字キー右&LR:レベル選択 | 十字キー上&ZL:実行 | 十字キー右&ZR:タイプ変更 | 十字キー左&ZR:時間マックス | ZR&R:全てリセット">Potion</div>
+        </div>
+    </div>
+
+    <!-- Movement -->
+    <div id="movement" class="page">
+        <div class="grid">
+            <div class="module" data-desc="飛べます。">Fly</div>
+            <div class="module" data-desc="うさぎジャンプができます。">BunnyHop</div>
+            <div class="module" data-desc="ノックバックしなくなります。">AntiKB</div>
+            <div class="module" data-desc="インベントリーを開きながら移動することができます。">InvenWalk</div>
+            <div class="module" data-desc="移動するスピードが速くなります。">Speed</div>
+            <div class="module" data-desc="泳ぐスピードが速くなります。">SwimSpeed</div>
+        </div>
+    </div>
+
+    <!-- Server -->
+    <div id="world" class="page">
+        <div class="grid">
+            <div class="module" data-desc="チェストの中身を一括で取得することができます。[PureClient式]">ChestStealer</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="追放されなくなります。">AntiKick</div>
+            <div class="module" data-desc="相手からのコマンド操作を無効化します。">AntiCommand</div>
+            <div class="module" data-desc="NNIDを変更することができます。">ChangeNNID</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="サーバー内でチャットができます。">Chat</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="[OP権限]downfallというメッセージが出るだけです。(他人反映)">DownFall</div>
+            <div class="module" data-desc="[OP権限]自身をキルします。">Kill</div>
+        </div>
+    </div>
+
+    <!-- 🔽 説明表示 -->
+    <div class="desc-box">
+        <div id="desc-title" class="desc-title">モジュールを選択</div>
+        <div id="desc-text" class="desc-text">ここに説明が表示されます</div>
+    </div>
+
+</div>
+
+<script>
+
+/* タブ */
+function openTab(id, el) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+    el.classList.add("active");
+}
+
+/* 色変更 */
+function setColor(color) {
+    document.querySelectorAll(".module").forEach(m => {
+        m.style.borderColor = color;
+    });
+
+    document.querySelector(".desc-box").style.borderTopColor = color;
+
+    document.querySelectorAll(".tab.active").forEach(t => {
+        t.style.borderBottomColor = color;
+    });
+}
+
+/* モジュールクリック */
+document.querySelectorAll(".module").forEach(m => {
+    m.onclick = () => {
+
+        // 選択状態リセット
+        document.querySelectorAll(".module").forEach(x => x.classList.remove("selected"));
+
+        // 選択
+        m.classList.add("selected");
+
+        // 下に表示
+        document.getElementById("desc-title").innerText = m.innerText;
+        document.getElementById("desc-text").innerText = m.dataset.desc;
+    };
+});
+
+</script>
+
+</body>
+</html>
