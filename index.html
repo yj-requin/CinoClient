@@ -5,6 +5,10 @@
 <title>CinoClient Ver1.1.X</title>
 
 <style>
+:root {
+    --theme-color: rgb(255, 255, 0);
+}
+
 body {
     margin: 0;
     font-family: sans-serif;
@@ -38,7 +42,7 @@ body {
 }
 
 .tab.active {
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid var(--theme-color);
 }
 
 /* モジュール */
@@ -50,7 +54,7 @@ body {
 
 .module {
     padding: 10px;
-    border: 2px solid orange;
+    border: 2px solid var(--theme-color);
     text-align: center;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.2);
@@ -72,7 +76,32 @@ body {
     margin-top: 20px;
     padding: 15px;
     background: rgba(255, 255, 255, 0.2);
-    border-top: 2px solid orange;
+    border-top: 2px solid var(--theme-color);
+}
+
+/* 虹色アニメーション */
+@keyframes rainbow-anim {
+    0%   { border-color: hsl(0, 100%, 50%);   box-shadow: 0 0 15px hsl(0, 100%, 50%);   color: hsl(0, 100%, 85%); }
+    25%  { border-color: hsl(90, 100%, 50%);  box-shadow: 0 0 15px hsl(90, 100%, 50%);  color: hsl(90, 100%, 85%); }
+    50%  { border-color: hsl(180, 100%, 50%); box-shadow: 0 0 15px hsl(180, 100%, 50%); color: hsl(180, 100%, 85%); }
+    75%  { border-color: hsl(270, 100%, 50%); box-shadow: 0 0 15px hsl(270, 100%, 50%); color: hsl(270, 100%, 85%); }
+    100% { border-color: hsl(360, 100%, 50%); box-shadow: 0 0 15px hsl(360, 100%, 50%); color: hsl(360, 100%, 85%); }
+}
+
+.rainbow-mode .tab.active,
+.rainbow-mode .module,
+.rainbow-mode .desc-box {
+    animation: rainbow-anim 3s linear infinite !important;
+}
+
+/* 虹色モード時の説明タイトルの色も合わせる */
+.rainbow-mode .desc-title {
+    animation: rainbow-anim 3s linear infinite !important;
+}
+
+/* 虹色ボタンの見た目 */
+.color.rainbow {
+    background: linear-gradient(45deg, red, orange, yellow, lime, cyan, blue, magenta);
 }
 
 .desc-title {
@@ -82,6 +111,7 @@ body {
 
 .desc-text {
     font-size: 14px;
+    white-space: pre-wrap;
 }
 
 /* 色変更 */
@@ -144,6 +174,8 @@ body {
             <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="ZL押しながらジャンプすると少し強化されます。">JumpAssist</div>
+            <div class="module" data-desc="未公開">OutRage</div>
         </div>
 
         <div class="colors">
@@ -156,8 +188,9 @@ body {
             <div class="color" style="background:purple" onclick="setColor('purple')"></div>
             <div class="color" style="background:white" onclick="setColor('white')"></div>
             <div class="color" style="background:orange" onclick="setColor('orange')"></div>
+            <div class="color rainbow" onclick="setColor('rainbow')"></div>
         </div>
-        <h5>CinoClient Ver1.1.2</h5>
+        <h5>CinoClient Ver1.1.3　　　　　　　　Discord : nayu_hime</h5>
     </div>
 
     <!-- Item -->
@@ -166,7 +199,7 @@ body {
             <div class="module" data-desc="[材料タブ]: 普通は出せないアイテム一覧">HackItem</div>
             <div class="module" data-desc="[武器タブ]: 自作モッドメニュー">CinoMenu</div>
             <div class="module" data-desc="[武器タブ]: 耐久付与">Unbreak</div>
-            <div class="module" data-desc="[武器タブ]: 花火,名札,スポーンエッグ,看板,ステータス一覧の本,カスタムドロップ増加&ワンパン剣,カスタム激流トライデント,全エンチャント本(合成用&元用),バグアイテム,色付き花瓶...など">CustomItem</div>
+            <div class="module" data-desc="[武器タブ]: ・花火・名札・スポーンエッグ・看板・ステータス一覧の本・カスタムドロップ増加&ワンパン剣・カスタム激流トライデント・全エンチャント本(合成用&元用)・バグアイテム・色付き花瓶">CustomItem</div>
             <div class="module" data-desc="[材料タブ]: カスタムポーション">Potion</div>
             <div class="module" data-desc="[材料タブ]: 宝箱のルートテーブル">Chest</div>
             <div class="module" data-desc="[武器タブ]: スピードが付与された足が速くなるブーツ(履くと付与される)">SpeedBoots</div>
@@ -177,6 +210,9 @@ body {
             <div class="module" data-desc="[武器タブ]: モブではないスポナー">NotionSpawner</div>
             <div class="module" data-desc="[材料タブ]: エッグウォーズの村人スポナー(16色)">EggWars</div>
             <div class="module" data-desc="[武器タブ]: (代表的な)10色の防具と地図">ArmorColor</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="[建築タブ]: 建築用アイテムが増える。">ExtedBlock</div>
+            <div class="module" data-desc="[赤石タブ]: レッドストーン系のアイテムが増える。">ExtedRedstone</div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="module" data-desc="[飾りタブ]: 元のアイテム戻す">Re:Decoration</div>
             <div class="module" data-desc="[材料タブ]: 元のアイテム戻す">Re:Material</div>
@@ -235,14 +271,13 @@ body {
             <div class="module" data-desc="いつでもクラフト">CraftEverything</div>
             <div class="module" data-desc="2個以上のアイテムを一括で捨てることが可能">DropStack</div>
             <div class="module" data-desc="上位の金リンゴを検出">GappleDetector</div>
-            <div class="module" data-desc="持ち物欄のアイテムを整理">InventorySort</div>
-            <div class="" data-desc=""></div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="module" data-desc="持ち物欄のアイテムをクリア">InventoryClean</div>
             <div class="module" data-desc="虹色防具">RainbowArmor</div>
             <div class="module" data-desc="アニメーションバナー(5種類,6カラー)">AnimBanner</div>
             <div class="" data-desc=""></div>
             <div class="module" data-desc="手に持ってるアイテムを頭にコピーしてくれます。">HandHead</div>
-            <div class="module" data-desc="・手に持ってるアイテムのダメージ値をループして頭にコピーできるようになりました。">LoopHead</div>
+            <div class="module" data-desc="手に持ってるアイテムのダメージ値をループして頭にコピーできるようになりました。">LoopHead</div>
             <div class="module" data-desc="手に持ってるアイテムを64個にしてくれます。">ItemStack</div>
             <div class="module" data-desc="手に持ってるアイテムを[飾りタブ]へコピーしてくれます。">ItemCopy</div>
         </div>
@@ -262,9 +297,15 @@ body {
             <div class="module" data-desc="手に持ってるアイテムに金床編集を無効化するタグを付与します。">CostError</div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
-            <div class="module" data-desc="手に持ってるアイテムにエンチャント効果を付与できる。[操作方法] | 十字キー下&LR:エンチャント選択 | 十字キー左&LR:レベル選択 | 十字キー上&ZL:実行 | 十字キー左&ZR:レベルマックス | ZR&R:すべてリセット">Enchant</div>
-            <div class="module" data-desc="手に持ってるアイテムにステータス効果を付与できる。[操作方法] UIが出ます。">Attribute</div>
-            <div class="module" data-desc="手に持ってるアイテムにポーション効果を付与できる。[操作方法] | 十字キー下&LR:ポーション効果選択 | 十字キー左&LR:時間設定 | 十字キー右&LR:レベル選択 | 十字キー上&ZL:実行 | 十字キー右&ZR:タイプ変更 | 十字キー左&ZR:時間マックス | ZR&R:全てリセット">Potion</div>
+            <div class="module" data-desc="手に持ってるアイテムにエンチャント効果を付与できる。[操作方法]・十字キー下&LR:エンチャント選択・十字キー左&LR:レベル選択・十字キー上&ZL:実行・十字キー左&ZR:レベルマックス・ZR&R:すべてリセット">Enchant</div>
+            <div class="module" data-desc="手に持ってるアイテムにステータス効果を付与できる。[操作方法]・UIが出ます。">Attribute</div>
+            <div class="module" data-desc="手に持ってるアイテムにポーション効果を付与できる。[操作方法]・十字キー下&LR:ポーション効果選択・十字キー左&LR:時間設定・十字キー右&LR:レベル選択・十字キー上&ZL:実行・十字キー右&ZR:タイプ変更・十字キー左&ZR:時間マックス・ZR&R:全てリセット">Potion</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="改造村人が作成できます。[詳細]・1番左スロット:交換アイテム1・2番左スロット:交換アイテム2・3番左スロット:販売アイテム [操作方法]・十字キー上&ZR:交易追加・十字キー上&ZL:スポナー召喚・ZR&R:リセット">TradeGen</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="手に持ってるカスタムスポナーにNoAIが付きます。">NoAI</div>
+            <div class="module" data-desc="手に持ってるカスタムスポナーにNoAIが解除されます。">DeletedAI</div>
+
         </div>
     </div>
 
@@ -293,6 +334,15 @@ body {
             <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="module" data-desc="[OP権限]downfallというメッセージが出るだけです。(他人反映)">DownFall</div>
             <div class="module" data-desc="[OP権限]自身をキルします。">Kill</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="天候を変更できます。・晴れ">Weat: Clear</div>
+            <div class="module" data-desc="天候を変更できます。・雨">Weat: Rain</div>
+            <div class="module" data-desc="天候を変更できます。・雷">Weat: Thunder</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="ワールドの難易度を変更できます。・ピースフル">Dif: Peaceful</div>
+            <div class="module" data-desc="ワールドの難易度を変更できます。・イージー">Dif: Easy</div>
+            <div class="module" data-desc="ワールドの難易度を変更できます。・ノーマル">Dif: Normal</div>
+            <div class="module" data-desc="ワールドの難易度を変更できます。・ハード">Dif: Hard</div>
         </div>
     </div>
 
@@ -317,15 +367,12 @@ function openTab(id, el) {
 
 /* 色変更 */
 function setColor(color) {
-    document.querySelectorAll(".module").forEach(m => {
-        m.style.borderColor = color;
-    });
-
-    document.querySelector(".desc-box").style.borderTopColor = color;
-
-    document.querySelectorAll(".tab.active").forEach(t => {
-        t.style.borderBottomColor = color;
-    });
+    if (color === 'rainbow') {
+        document.documentElement.classList.add('rainbow-mode');
+    } else {
+        document.documentElement.classList.remove('rainbow-mode');
+        document.documentElement.style.setProperty('--theme-color', color);
+    }
 }
 
 /* モジュールクリック */
@@ -340,7 +387,9 @@ document.querySelectorAll(".module").forEach(m => {
 
         // 下に表示
         document.getElementById("desc-title").innerText = m.innerText;
-        document.getElementById("desc-text").innerText = m.dataset.desc;
+        // '[' や '|' の前に改行を挿入し、先頭の余分な改行を trim() で削除します
+        const desc = m.dataset.desc || "";
+        document.getElementById("desc-text").innerText = desc.replace(/[\[・]/g, '\n$&').trim();
     };
 });
 
