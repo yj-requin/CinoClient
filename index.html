@@ -190,7 +190,7 @@ body {
             <div class="color" style="background:orange" onclick="setColor('orange')"></div>
             <div class="color rainbow" onclick="setColor('rainbow')"></div>
         </div>
-        <h5>CinoClient Ver1.1.6　　　　　　　　Discord : nayu_hime</h5>
+        <h5>CinoClient Ver1.1.7　　　　　　　　Discord : nayu_hime</h5>
     </div>
 
     <!-- Item -->
@@ -230,7 +230,9 @@ body {
             <div class="module" data-desc="CSMの表示を無効化">AntiCSM</div>
             <div class="module" data-desc="釣り竿の表示を無効化">AntiFishing</div>
             <div class="module" data-desc="追加コンテンツ解放">UnlockDLC</div>
-            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="クリティカルエフェクトが焔仕様に">BlazeEffect</div>
+            <div class="module" data-desc="スノーボールのエフェクトがハート仕様に">SnowballEffect</div>
+            <div class="module" data-desc="クールダウン無効化">NoCooldown</div>
             <div class="module" data-desc="目の前のプレイヤーのスキンをコピー">SkinCopy</div>
             <div class="module" data-desc="目の前のプレイヤーのマントをコピー">CapeCopy</div>
             <div class="module" data-desc="マント一覧を表示 [ Select Cape ]・None・Red Creeper・Pickaxe・Piston・Iron Golem・Enderman・Black・Red Devil・Black & Red・Evil Wizard・White">CapeList</div>
@@ -281,8 +283,10 @@ body {
             <div class="" data-desc=""></div>
             <div class="module" data-desc="手に持ってるアイテムを頭にコピーしてくれます。">HandHead</div>
             <div class="module" data-desc="手に持ってるアイテムのダメージ値をループして頭にコピーできるようになりました。">LoopHead</div>
-            <div class="module" data-desc="手に持ってるアイテムを64個にしてくれます。">ItemStack</div>
             <div class="module" data-desc="手に持ってるアイテムを[飾りタブ]へコピーしてくれます。・ZLボタンを押しながらモジュールをONにすることで、十字キー上&ZLボタンでアイテムをコピーできます。">ItemCopy</div>
+            <div class="" data-desc=""></div>
+            <div class="module" data-desc="手に持ってるアイテムを64個にしてくれます。">ItemStack</div>
+            <div class="module" data-desc="手持ち欄のアイテムを全て64個にしてくれます。">HotBarStack</div>
         </div>
     </div>
 
@@ -322,21 +326,29 @@ body {
             <div class="module" data-desc="飛べます。">Fly</div>
             <div class="module" data-desc="うさぎジャンプができます。">BunnyHop</div>
             <div class="module" data-desc="ノックバックしなくなります。">AntiKB</div>
-            <div class="module" data-desc="インベントリーを開きながら移動することができます。">InvenWalk</div>
+            <div class="module" data-desc="エアーホップと落下無効">AirJump</div>
             <div class="module" data-desc="移動するスピードが速くなります。">Speed</div>
             <div class="module" data-desc="泳ぐスピードが速くなります。">SwimSpeed</div>
             <div class="module" data-desc="視点が低くなり、1マスの穴も通れます。">OneView</div>
-            <div class="module" data-desc="ZRで激流発動します。">ZRRiptide</div>
-            <div class="module" data-desc="早く掘れます。">FastBreak</div>
-            <div class="module" data-desc="エアーホップと落下無効">HopNoDamage</div>
+            <div class="module" data-desc="インベントリーを開きながら移動することができます。">InvenWalk</div>
+            <div class="module" data-desc="視点先のブロックにテレポートできます。・十字キー左 & ZL">ClickTP</div>
+            <div class="module" data-desc="サバイバルでも早く掘れます。(岩盤も破壊可能)">FastBreak</div>
+            <div class="module" data-desc="殴るボタンで激流発動します。">Torrent</div>
+            <div class="module" data-desc="激流(Torrent)発動時限定、移動できる制限を解除できます。"> :-NoMove</div>
             <div class="module" data-desc="常時クリティカル状態になります。">Critical</div>
+            <div class="module" data-desc="プレイヤーやモンスターを超高速で攻撃ができます。">FastAttack</div>
+            <div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="高速でブロックなどを置けます。">FastPlace</div>
+            <div class="module" data-desc="高速でブロックを破壊、プレイヤーやモンスターを攻撃できます。">FastAction</div>
+            <div class="module" data-desc="ブロックを置く速度などが倍速になります。">WFastPlace</div>
+            <div class="module" data-desc="ブロックを破壊する速度などが倍速になります。">WFastAction</div>
         </div>
     </div>
 
     <!-- Server -->
     <div id="world" class="page">
         <div class="grid">
-            <div class="module" data-desc="チェストの中身を一括で取得することができます。[PureClient式]">ChestStealer</div>
+            <div class="module" data-desc="チェストの中身を一括で取得することができます。・クラッシュしなくなりました。">ChestStealer</div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="module" data-desc="追放されなくなります。">AntiKick</div>
             <div class="module" data-desc="相手からのコマンド操作を無効化します。">AntiCommand</div>
