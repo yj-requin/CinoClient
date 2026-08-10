@@ -141,8 +141,7 @@ body {
 
     <!-- タブ -->
     <div class="tabs">
-        <div class="tab active" onclick="openTab('main', this)">Client</div>
-        <div class="tab" onclick="openTab('main', this)">MainMenu</div>
+        <div class="tab active" onclick="openTab('main', this)">MainMenu</div>
         <div class="tab" onclick="openTab('itemenu', this)">ItemMenu</div>
         <div class="tab" onclick="openTab('misc', this)">Misc</div>
         <div class="tab" onclick="openTab('render', this)">Render</div>
@@ -153,14 +152,9 @@ body {
         <div class="tab" onclick="openTab('fix', this)">Fix</div>
     </div>
 
-    <!-- Client -->
-    <div id="client" class="page active">
-        <div class="grid">
-            <!-- <div class="module" data-desc="飛べる">fly</div> -->
-        </div>
 
     <!-- Main -->
-    <div id="main" class="page">
+    <div id="main" class="page active">
         <div class="grid">
             <div class="module" data-desc="アイテムの詳細表示">DebugText</div>
             <div class="module" data-desc="マイクをミュート">MicMute</div>
