@@ -28,7 +28,7 @@ body {
 /* タブ */
 .tabs {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     margin-bottom: 12px;
     color: white;
 }
@@ -162,7 +162,7 @@ body {
             <div><h5>サイトはそのまま見れるけど、WiiU側でタブを2回押したら2ページ目に行けるよ。</h5></div>
             <div><h5>自動再起動がついてるよ。</h5></div>
             <div><h5>ニンテンドーって表示されてるところがほとんどプレテンドーに変更されているよ。</h5></div>
-            <div><h5>種類が違うWiiU本体でも全て共通にバグはなくなる</h5></div>
+            <div><h5>種類が違うWiiU本体でも全て共通にバグはないよ。</h5></div>
         </div>
 
     <!-- Main -->
@@ -239,11 +239,7 @@ body {
             <div class="module" data-desc="釣り竿の表示を無効化">AntiFishing</div>
             <div class="module" data-desc="CSMを正常に表示">LoadCSM</div>
             <div class="module" data-desc="液体の上に乗れる。">LiquidBlock</div>
-            <div class="module" data-desc="バリアブロックが見える。">ShowBarrier</div>
-            <div class="module" data-desc="腕を振らない">NoArm</div>
-            <div class="module" data-desc="トーテムのアニメーションを無効化">NoTotemAnim</div>
             <div class="module" data-desc="画面が揺れない">NoShake</div>
-            <div class="module" data-desc="雨や雷の表示を無効化">NoRain</div>
             <div class="module" data-desc="弓を構えたとき、地図が消えるのを無効化">BowNoMap</div>
             <div class="module" data-desc="額縁の枠の表示を無効化">PictureNoframe</div>
             <div class="module" data-desc="地図に書いてる座標を非表示">MapNoCords</div>
@@ -255,11 +251,11 @@ body {
             <div class="module" data-desc="クリティカルエフェクトが焔仕様に">BlazeEffect</div>
             <div class="module" data-desc="スノーボールのエフェクトがハート仕様に">SnowballEffect</div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div>
-            <div><h5> - 2page</h5></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="module" data-desc="ミニゲームでもポーションが飲めます。">Drinkable</div>
             <div class="module" data-desc="フレンドのフレンドの許可を無効化">FriendOfBypass</div>
             <div class="" data-desc=""></div>
             <div class="" data-desc=""></div>
+            <div><h5> - 2page</h5></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
             <div class="module" data-desc="目の前のプレイヤーのスキンをコピー">SkinCopy</div>
             <div class="module" data-desc="目の前のプレイヤーのマントをコピー">CapeCopy</div>
             <div class="module" data-desc="マント一覧を表示 [ Select Cape ]・None・Red Creeper・Pickaxe・Piston・Iron Golem・Enderman・Black・Red Devil・Black & Red・Evil Wizard・White">CapeList</div>
@@ -277,7 +273,10 @@ body {
             <div class="module" data-desc="プレイヤーにHPを表示します。NameTagと一緒にONにすると適応されます。">ShowHealth</div>
             <div class="module" data-desc="アイテムをぺらぺらに">ItemPhysics</div>
             <div class="module" data-desc="フォントを変更する">BetterFont</div>
-            <div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div><div class="" data-desc=""></div>
+            <div class="module" data-desc="バリアブロックが見える。">ShowBarrier</div>
+            <div class="module" data-desc="腕を振らない">NoArm</div>
+            <div class="module" data-desc="トーテムのアニメーションを無効化">NoTotemAnim</div>
+            <div class="module" data-desc="雨や雷の表示を無効化">NoRain</div>
             <div class="module" data-desc="FPSを表示">ShowFPS</div>
             <div class="module" data-desc="CPSを表示">ShowCPS</div>
             <div class="module" data-desc="座標を表示">Coords</div>
@@ -371,12 +370,16 @@ body {
             <div class="module" data-desc="エアーホップと落下無効">AirJump</div>
             <div class="module" data-desc="移動するスピードが速くなります。">Speed</div>
             <div class="module" data-desc="泳ぐスピードが速くなります。">SwimSpeed</div>
+            <div class="module" data-desc="走るスピードが速くなります。">DashSpeed</div>
             <div class="module" data-desc="10マスの壁の上に登れる。">Step</div>
+            <div class="module" data-desc="蜘蛛の巣を無効化できます。">NoWeb</div>
             <div class="module" data-desc="アイテム使用時や空腹時でも走れます。">NoSlow</div>
-            <div class="module" data-desc="ミニゲームで移動可能">MiniGameMove</div>
             <div class="module" data-desc="インベントリーを開きながら移動することができます。">InvenWalk</div>
             <div class="module" data-desc="視点が低くなり、1マスの穴も通れます。">OneView</div>
+            <div class="module" data-desc="落下の衝撃がなくなります。[副作用]・解除時、落下死します。">NoFallDamage</div>
             <div class="module" data-desc="ブロックの置ける距離が最大7マスに変更。">Block7Mass</div>
+            <div class="module" data-desc="水ないところでも泳げます。">WaterFly</div>
+            <div class="module" data-desc="ミニゲームで移動可能">MiniGameMove</div>
             <div class="module" data-desc="視点先のブロックにテレポートできます。・十字キー左 & ZL">ClickTP</div>
             <div class="module" data-desc="サバイバルでも早く掘れます。(岩盤も破壊可能)">FastBreak</div>
             <div class="" data-desc=""></div><div class="" data-desc=""></div>
